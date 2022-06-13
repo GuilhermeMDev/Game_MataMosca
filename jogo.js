@@ -76,7 +76,7 @@ function posicaoRandomica() {
 
     console.log(posicaoX, posicaoY)
 
-    //Criando o elemento html, neste caso o alvo.
+    //Criando o elemento html, neste caso o alvo.    
     var mosquito = document.createElement('img')
     mosquito.src = 'imagens/mosquito.png'
     mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()//Chama a função a baixo
@@ -84,8 +84,17 @@ function posicaoRandomica() {
     mosquito.style.top = posicaoY + 'px'
     mosquito.style.position = 'absolute'
     mosquito.id = 'mosquito'
+
+    //Adicionando som de fundo do mosquito
+    som_mosquito = document.createElement('audio')
+    som_mosquito.src = 'sons/Mosquito1.mp3'
+    som_mosquito.autoplay = true
+
     mosquito.onclick = function () {
         this.remove()
+        som_mosquito = document.createElement('audio')
+        som_mosquito.src = 'sons/esmagado1.mp3'
+        som_mosquito.autoplay = true
     }
 
     document.body.appendChild(mosquito)
