@@ -76,6 +76,12 @@ function posicaoRandomica() {
 
     console.log(posicaoX, posicaoY)
 
+    //Adicionando som de fundo do mosquito
+    som_mosquito = document.createElement('audio')
+    som_mosquito.src = 'sons/Mosquito1.mp3'
+    som_mosquito.autoplay = true
+    som_mosquito.volume = 0.30
+
     //Criando o elemento html, neste caso o alvo.    
     var mosquito = document.createElement('img')
     mosquito.src = 'imagens/mosquito.png'
@@ -85,16 +91,12 @@ function posicaoRandomica() {
     mosquito.style.position = 'absolute'
     mosquito.id = 'mosquito'
 
-    //Adicionando som de fundo do mosquito
-    som_mosquito = document.createElement('audio')
-    som_mosquito.src = 'sons/Mosquito1.mp3'
-    som_mosquito.autoplay = true
-
     mosquito.onclick = function () {
-        this.remove()
-        som_mosquito = document.createElement('audio')
+        som_mosquito = document.createElement('audio') //Ao clicar para removar o mosquito, executa o som de 'esmagado'
         som_mosquito.src = 'sons/esmagado1.mp3'
         som_mosquito.autoplay = true
+        this.remove()
+
     }
 
     document.body.appendChild(mosquito)
